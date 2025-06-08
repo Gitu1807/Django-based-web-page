@@ -1,0 +1,32 @@
+<!-- fileapp/templates/fileapp/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Viewer</title>
+    <link rel="stylesheet" href="{% static 'fileapp/css/styles.css' %}">
+</head>
+<body>
+    <nav>Navbar</nav>
+    
+    <div class="main">
+        <select id="fileDropdown">
+            <option value="">Select file</option>
+            {% for file in files %}
+                <option value="{{ file }}">{{ file }}</option>
+            {% endfor %}
+        </select>
+        <button id="viewBtn" disabled>View</button>
+    </div>
+
+    <footer>Footer</footer>
+
+    <!-- Modal -->
+    <div id="modal" class="hidden">
+        <p>The file is not available locally.</p>
+        <button id="downloadBtn">Download</button>
+    </div>
+
+    <script src="{% static 'fileapp/js/main.js' %}"></script>
+</body>
+</html>
